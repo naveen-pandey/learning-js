@@ -116,7 +116,5 @@ function printKyc() {
 }
 
 
-printKyc().then( details => { console.log("KYC Details: ", details); } )
-    .catch(error => {
-        console.error("Error ", error);
-    })
+printKyc().then( function(details) { console.log("KYC Details: ", details); } )
+    .catch(function(error) { console.error("Error ", error); } )
