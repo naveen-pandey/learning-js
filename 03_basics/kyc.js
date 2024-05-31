@@ -61,7 +61,7 @@ const myDetails = {
 
     forOfficeUse: {
         personWhoDidIPV: "Animesh Anand",
-        desgination: "Bank Manager",
+        designation: "Bank Manager",
         employeeId: "12345",
         date: "31-May-2024"
     }
@@ -70,12 +70,12 @@ const myDetails = {
 
 
 function myKyc(myDetails) {
-    console.log("Address: ", address(myDetails))
-    console.log("Identity: ", identity(myDetails))
-    console.log("Contact: ", contact(myDetails))
-    console.log("OtherDetails: ", otherDetails(myDetails))
-    console.log("Applicant Declaration: ", applicantDeclaration(myDetails))
-    console.log("For Office Use Details: ", officeUseDetails(myDetails))
+    // console.log("Address: ", address(myDetails))
+    // console.log("Identity: ", identity(myDetails))
+    // console.log("Contact: ", contact(myDetails))
+    // console.log("OtherDetails: ", otherDetails(myDetails))
+    // console.log("Applicant Declaration: ", applicantDeclaration(myDetails))
+    // console.log("For Office Use Details: ", officeUseDetails(myDetails))
     return myDetails
 }
 
@@ -104,4 +104,19 @@ function applicantDeclaration(myDetails) {
 }
 
 
-console.log("Complete Kyc: ", myKyc(myDetails))
+//console.log("Complete Kyc: ", myKyc(myDetails))
+
+function printKyc() {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function(){
+            resolve(myKyc(myDetails));
+        }, 3000)
+    });
+
+}
+
+
+printKyc().then( details => { console.log("KYC Details: ", details); } )
+    .catch(error => {
+        console.error("Error ", error);
+    })
