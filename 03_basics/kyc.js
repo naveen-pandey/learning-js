@@ -106,15 +106,33 @@ function applicantDeclaration(myDetails) {
 
 //console.log("Complete Kyc: ", myKyc(myDetails))
 
+// function printKyc() {
+//     return new Promise(function(resolve, reject) {
+//         setTimeout(function(){
+//             resolve(myKyc(myDetails));
+//         }, 3000)
+//     });
+
+// }
+
+
+// printKyc().then( function(details) { 
+//     console.log("KYC Details: ", details); 
+// } )
+//     .catch(function(error) { console.error("Error ", error); } )
+
 function printKyc() {
-    return new Promise(function(resolve, reject) {
-        setTimeout(function(){
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
             resolve(myKyc(myDetails));
         }, 3000)
     });
 
 }
 
+async function displayKycDetails() {
+    const details = await printKyc();
+    console.log("Kyc Details: ", details);
+}
 
-printKyc().then( function(details) { console.log("KYC Details: ", details); } )
-    .catch(function(error) { console.error("Error ", error); } )
+displayKycDetails();
